@@ -10,9 +10,15 @@ import hello.demo.member.MemoryMemberRepository;
 public class OrderServiceImpl implements OrderService{
 
     // DIP 를 지키기 위해 구현체를 생성하지 않음
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
-    private DiscountPolicy discountPolicy;
-    
+    private final MemberRepository memberRepository;
+    private final DiscountPolicy discountPolicy;
+
+    // 사용자 정의 생성자 - 구현체 2개 받기
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
+
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
         Member member = memberRepository.findById(memberId);
