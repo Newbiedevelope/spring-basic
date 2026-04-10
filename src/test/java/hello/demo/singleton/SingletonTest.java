@@ -39,4 +39,21 @@ public class SingletonTest {
         Assertions.assertEquals(singletonService1, singletonService2);
     }
 
+    @Test
+    @DisplayName("스프링 컨테이너와 싱글톤")
+    void springContainer() {
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+
+        // 조회 1
+        MemberService memberService1 = ac.getBean("memberService", MemberService.class);
+
+        // 조회 2
+        MemberService memberService2 = ac.getBean("memberService", MemberService.class);
+
+        System.out.println("memberService1 = " + memberService1);
+        System.out.println("memberService2 = " + memberService2);
+
+        Assertions.assertEquals(memberService1, memberService2);
+    }
+
 }
