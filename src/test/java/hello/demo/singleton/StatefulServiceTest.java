@@ -24,8 +24,6 @@ class StatefulServiceTest {
         // ThreadA : 사용자 A 주문 금액 조회
         //int price = bean1.getPrice();
         //System.out.println("price = " + price);
-
-        Assertions.assertNotEquals(price, 10000);
     }
 
 
