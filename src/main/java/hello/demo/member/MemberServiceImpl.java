@@ -1,5 +1,6 @@
 package hello.demo.member;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -8,6 +9,7 @@ public class MemberServiceImpl implements MemberService {
     private final MemberRepository memberRepository;
 
     // 사용자 정의 생성자 - MemberRepository 구현체 받기
+    @Autowired // ac.getBean(new MemberRepository())
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }

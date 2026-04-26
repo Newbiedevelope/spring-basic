@@ -6,7 +6,10 @@ import hello.demo.discount.RateDiscountPolicy;
 import hello.demo.member.Member;
 import hello.demo.member.MemberRepository;
 import hello.demo.member.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OrderServiceImpl implements OrderService{
 
     // DIP 를 지키기 위해 구현체를 생성하지 않음
@@ -14,6 +17,7 @@ public class OrderServiceImpl implements OrderService{
     private final DiscountPolicy discountPolicy;
 
     // 사용자 정의 생성자 - 구현체 2개 받기
+    @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
