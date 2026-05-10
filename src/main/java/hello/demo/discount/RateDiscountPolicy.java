@@ -2,7 +2,11 @@ package hello.demo.discount;
 
 import hello.demo.member.Grade;
 import hello.demo.member.Member;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 
+//@Qualifier("mainDiscountPolicy")
+@Primary
 public class RateDiscountPolicy implements DiscountPolicy{
 
     private int discountPernect = 10;
